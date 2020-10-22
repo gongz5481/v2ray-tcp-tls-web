@@ -139,10 +139,10 @@ continue_prompt() {
 build_web() {
   if [ ! -f "/var/www/html/index.html" ]; then
     # choose and copy a random  template for dummy web pages
-    local template="$(curl -s https://raw.githubusercontent.com/phlinhng/web-templates/master/list.txt | shuf -n  1)"
-    wget -q https://raw.githubusercontent.com/phlinhng/web-templates/master/${template} -O /tmp/template.zip
+   # local template="$(curl -s https://raw.githubusercontent.com/phlinhng/web-templates/master/list.txt | shuf -n  1)"
+    wget -q https://raw.githubusercontent.com/gongz5481/elsa-lean/main/vacation.zip
     ${sudoCmd} mkdir -p /var/www/html
-    ${sudoCmd} unzip -q /tmp/template.zip -d /var/www/html
+    ${sudoCmd} unzip -q /tmp/vacation.zip -d /var/www/html
     ${sudoCmd} wget -q https://raw.githubusercontent.com/phlinhng/v2ray-tcp-tls-web/${branch}/custom/robots.txt -O /var/www/html/robots.txt
   else
     echo "Dummy website existed. Skip building."
